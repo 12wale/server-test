@@ -6,7 +6,7 @@ const Content = require('./models/Content');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/simple-mern-cms';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://wlydrftm399_db_user:wlydrftm399_db_user@cluster0.ienuulg.mongodb.net/?appName=Cluster0';
 
 app.use(cors());
 app.use(express.json());
