@@ -1,12 +1,14 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const Content = require('./models/Content');
+import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import Content from './models/Content.js';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://wlydrftm399_db_user:wlydrftm399_db_user@cluster0.ienuulg.mongodb.net/?appName=Cluster0';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://wlydrftm399_db_user:qmVkgLsiciX93EG8@cluster0.ienuulg.mongodb.net/?appName=Cluster0';
 
 app.use(cors());
 app.use(express.json());
@@ -37,7 +39,6 @@ app.get('/api/content', async (req, res) => {
 app.put('/api/content', async (req, res) => {
   try {
     const { title, description, imageUrl } = req.body;
-    // Update the first document found, or create if it doesn't exist (upsert-like behavior for single doc app)
     let content = await Content.findOne();
     if (!content) {
       content = new Content({ title, description, imageUrl });

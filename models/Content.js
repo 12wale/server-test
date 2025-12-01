@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from 'mongoose';
 const ContentSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -18,4 +17,4 @@ const ContentSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // We will only have one document for this simple app, so we can just fetch the first one.
-module.exports = mongoose.model('Content', ContentSchema);
+export default mongoose.model('Content', ContentSchema);
